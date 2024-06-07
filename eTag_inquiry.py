@@ -262,7 +262,7 @@ def data_ETagPairLive(data):
 def data_http(date_input, time_input, road_input, roadDir_input, km_input):
     http_ETag = "https://tisvcloud.freeway.gov.tw/history/motc20/ETag/" + date_input + "/ETag_0000.xml.gz"
 
-    r = requests.get(http_ETag, timeout=5) # 上網抓檔案，格式為.xml.gz
+    r = requests.get(http_ETag, timeout=60) # 上網抓檔案，格式為.xml.gz
     if r.status_code != 200:
         print("請求失敗...")
         print(r.status_code)
@@ -276,7 +276,7 @@ def data_http(date_input, time_input, road_input, roadDir_input, km_input):
 
     http_ETagPairLive = "https://tisvcloud.freeway.gov.tw/history/motc20/ETag/" + date_input + "/ETagPairLive_" + time_input + ".xml.gz"
     
-    r = requests.get(http_ETagPairLive, timeout=15) # 上網抓檔案，格式為gz
+    r = requests.get(http_ETagPairLive, timeout=60) # 上網抓檔案，格式為gz
     if r.status_code != 200:
         print("請求失敗...")
         print(r.status_code)     
